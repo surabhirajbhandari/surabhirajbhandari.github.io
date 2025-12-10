@@ -138,15 +138,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
 `<div class="project-details">
-   <h4>Lights Out!</h4>
-    <p>Puzzle game inspired by the classic “Lights Out” logic game using C. The game challenges users to turn off all the lights on a grid, where toggling one light also toggles its adjacent lights. Key features and contributions include:</p>
-      <ul>
-        <li>Simulated a 2D grid using a 1D array and arithmetic indexing to track window states and toggle adjacent lights</li>
-        <li>Validated player input and updated an ASCII-rendered game board on the terminal in real time</li>
-        <li>Used modular programming and pointer arithmetic for efficient state management and debugging</li>
-     </ul>
-    <p><strong>Technologies:</strong> C, Game Logic</p>
-</div>`,
+  <h4>Focura – AI Posture & Focus Companion</h4>
+  <p>
+    An AI-powered productivity and wellness app built at DragonHacks 2025 (Best AI Implementation winner) to promote healthier, more focused study and work sessions. 
+    Focura uses real-time computer vision and intelligent feedback loops to detect posture issues and distraction, then gently nudges users back into alignment and focus.
+  </p>
+  <ul>
+    <li>
+      Developed an AI-powered productivity and wellness app that detects posture deviations 
+      (slouching, neck tilt) and phone distraction in real time, delivering intelligent nudges 
+      that keep users upright, focused, and engaged during work and study sessions.
+    </li>
+    <li>
+      Engineered the end-to-end AI workflow using MediaPipe for computer-vision posture tracking, 
+      LangGraph for state and logic orchestration, and the Gemini API for generating personalized 
+      ergonomic guidance, study prompts, and motivational micro-interventions.
+    </li>
+    <li>
+      Integrated Pomodoro timers, break scheduling, and hydration reminders into a unified 
+      behavior-change system designed to improve focus, reduce fatigue, and promote sustainable 
+      work habits.
+    </li>
+    <li>
+      Designed product experience and UX flows emphasizing habit formation, minimal-interruption 
+      feedback, and intuitive posture indicators to support long-term engagement and user adoption.
+    </li>
+  </ul>
+  <p><strong>Technologies:</strong> Python, MediaPipe, OpenCV, LangGraph, Gemini API, Computer Vision, HCI</p>
+</div>
+
+`,
 
         `<div class="project-details">
   <h4>Computer Vision Target Detection</h4>
@@ -200,5 +221,6 @@ const posterUrl = 'pdf/RIS%20Poster.pdf'; // URL-encoded space
 // Or using encodeURIComponent()
 const fileName = 'RIS Poster.pdf';
 const safeUrl = 'pdf/' + encodeURIComponent(fileName); // becomes "pdf/RIS%20Poster.pdf"
+
 
 
