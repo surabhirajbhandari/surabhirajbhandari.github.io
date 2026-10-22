@@ -224,3 +224,95 @@ const safeUrl = 'pdf/' + encodeURIComponent(fileName); // becomes "pdf/RIS%20Pos
 
 
 
+
+
+// Enchanted lotus welcome: fairy landing, bloom, and ripple-like exit.
+document.addEventListener('DOMContentLoaded', () => {
+  const intro = document.getElementById('gardenIntro');
+  const lotus = document.getElementById('lotusGateway');
+  const enter = document.getElementById('enterGarden');
+  if (intro && lotus && enter) {
+    let bloomed = false;
+    const bloom = () => {
+      lotus.classList.remove('is-blooming');
+      void lotus.offsetWidth;
+      lotus.classList.add('is-blooming');
+      bloomed = true;
+      enter.textContent = 'The garden is awake — enter ↗';
+    };
+    lotus.addEventListener('click', bloom);
+    enter.addEventListener('click', () => {
+      if (!bloomed) bloom();
+      intro.classList.add('is-leaving');
+      document.body.classList.add('garden-awake');
+      window.setTimeout(() => { intro.remove(); document.body.style.overflow = ''; }, 950);
+    });
+    document.body.style.overflow = 'hidden';
+    intro.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        intro.classList.add('is-leaving');
+        window.setTimeout(() => { intro.remove(); document.body.style.overflow = ''; }, 950);
+      }
+    });
+  }
+
+  // Interactive bouquet: visitors can collect and remove flowers.
+  const stems = document.getElementById('bouquetStems');
+  const message = document.getElementById('bouquetMessage');
+  const choices = Array.from(document.querySelectorAll('.flower-choice'));
+  const picked = [];
+  function renderBouquet() {
+    if (!stems || !message) return;
+    stems.innerHTML = '';
+    if (!picked.length) {
+      const empty = document.createElement('span');
+      empty.className = 'bouquet-empty';
+      empty.textContent = 'Your bouquet is waiting to bloom ✿';
+      stems.appendChild(empty);
+      message.textContent = 'Choose a flower from the patch to begin.';
+      return;
+    }
+    picked.forEach((item, index) => {
+      const flower = document.createElement('button');
+      flower.type = 'button';
+      flower.className = 'bouquet-flower';
+      flower.textContent = item.flower;
+      flower.title = 'Remove ' + item.name;
+      flower.setAttribute('aria-label', 'Remove ' + item.name + ' from bouquet');
+      flower.style.border = '0';
+      flower.style.background = 'transparent';
+      flower.style.cursor = 'pointer';
+      flower.addEventListener('click', () => {
+        picked.splice(index, 1);
+        renderBouquet();
+        syncChoices();
+      });
+      stems.appendChild(flower);
+    });
+    message.textContent = picked.length + (picked.length === 1 ? ' flower, one little story.' : ' flowers, a garden of stories.');
+  }
+  function syncChoices() {
+    choices.forEach(button => {
+      const active = picked.some(item => item.name === button.dataset.name);
+      button.classList.toggle('is-picked', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+  choices.forEach(button => button.addEventListener('click', () => {
+    const name = button.dataset.name;
+    const existing = picked.findIndex(item => item.name === name);
+    if (existing >= 0) picked.splice(existing, 1);
+    else picked.push({ flower: button.dataset.flower, name });
+    syncChoices();
+    renderBouquet();
+  }));
+  const clear = document.getElementById('clearBouquet');
+  if (clear) clear.addEventListener('click', () => { picked.length = 0; syncChoices(); renderBouquet(); });
+  const nameButton = document.getElementById('nameBouquet');
+  if (nameButton) nameButton.addEventListener('click', () => {
+    if (!picked.length) { message.textContent = 'Pick a flower first, little gardener ✿'; return; }
+    const name = window.prompt('What shall we call your bouquet?', 'Little things that grow');
+    if (name && name.trim()) message.textContent = '“' + name.trim() + '” — a bouquet of ' + picked.map(item => item.name.toLowerCase()).join(', ') + '.';
+  });
+  renderBouquet();
+});
