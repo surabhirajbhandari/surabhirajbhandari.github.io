@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surabhi Rajbhandari | Portfolio</title>
+    <title>Surabhi Rajbhandari | A Garden of Ideas</title>
     <link rel="icon" href="images/lotus-flower.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
@@ -19,6 +19,33 @@
 
 </head>
 <body>
+
+<!-- Enchanted garden welcome: the original portfolio content remains below -->
+<div class="garden-intro" id="gardenIntro" role="dialog" aria-modal="true" aria-labelledby="gardenIntroTitle">
+  <div class="intro-fireflies" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>·</i><i>✧</i><i>✦</i></div>
+  <div class="intro-vines vine-left" aria-hidden="true">❧</div><div class="intro-vines vine-right" aria-hidden="true">❧</div>
+  <p class="intro-eyebrow">A little world made with curiosity & care</p>
+  <button class="lotus-gateway" id="lotusGateway" aria-label="Open Surabhi's portfolio by waking the lotus">
+    <span class="fairy-spark" aria-hidden="true">✧</span>
+    <svg class="gateway-lotus" viewBox="0 0 260 210" role="img" aria-label="A pink lotus resting on water">
+      <ellipse cx="130" cy="174" rx="94" ry="17" fill="#b5c7a2" opacity=".42"/>
+      <path d="M38 174 Q82 159 130 174 T222 174" fill="none" stroke="#6f947a" stroke-width="2" opacity=".8"/>
+      <path d="M72 166 Q96 118 130 166 Q163 117 188 166 Q154 185 130 177 Q103 186 72 166Z" fill="#d99caa"/>
+      <path d="M86 164 Q89 104 130 151 Q151 104 177 164 Q151 174 130 169 Q108 175 86 164Z" fill="#f1bdc7" stroke="#c78399" stroke-width="1.5"/>
+      <path d="M103 161 Q106 87 130 141 Q149 88 158 161 Q143 169 130 163 Q117 169 103 161Z" fill="#ffdae0" stroke="#d89cab" stroke-width="1.5"/>
+      <path d="M118 157 Q112 106 130 119 Q149 105 142 157Z" fill="#fff0d0" stroke="#dba9a1" stroke-width="1.5"/>
+      <circle cx="130" cy="153" r="9" fill="#e8b95f"/><g fill="#fff2c4"><circle cx="126" cy="150" r="1.5"/><circle cx="133" cy="149" r="1.5"/><circle cx="130" cy="155" r="1.5"/><circle cx="136" cy="155" r="1.5"/></g>
+      <path d="M57 179 Q81 171 101 180 M161 181 Q184 170 204 178" fill="none" stroke="#789c88" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="fairy-landing" aria-hidden="true">🧚🏻‍♀️</span>
+    <span class="lotus-instruction">tap the lotus to begin</span>
+  </button>
+  <h1 id="gardenIntroTitle">A garden of ideas,<br><em>grown by Surabhi.</em></h1>
+  <p class="intro-copy">A little engineering, a little imagination, and lots of things growing in between.</p>
+  <button class="enter-garden" id="enterGarden">Wander into my world <span aria-hidden="true">↗</span></button>
+  <p class="intro-footnote">PRODUCT · PEOPLE · TECHNOLOGY · WONDER</p>
+</div>
+
 
 <!-- Header -->
  <header>
@@ -556,7 +583,30 @@
         </div>
     </section>
 
-    <footer>
+    
+<section class="section bouquet-section" id="bouquet">
+  <p class="garden-kicker">A tiny garden activity</p>
+  <h2 class="section-title">Make me a bouquet</h2>
+  <p class="bouquet-intro">Pick the flowers that feel like me. Each one holds a little piece of my world.</p>
+  <div class="bouquet-studio">
+    <div class="flower-patch" aria-label="Choose flowers for your bouquet">
+      <button class="flower-choice" data-flower="🌷" data-name="Curiosity"><span>🌷</span><b>Tulip</b><small>Curiosity</small></button>
+      <button class="flower-choice" data-flower="🌼" data-name="Optimism"><span>🌼</span><b>Daisy</b><small>Optimism</small></button>
+      <button class="flower-choice" data-flower="🪻" data-name="Creativity"><span>🪻</span><b>Lavender</b><small>Creativity</small></button>
+      <button class="flower-choice" data-flower="🌸" data-name="Empathy"><span>🌸</span><b>Blossom</b><small>Empathy</small></button>
+      <button class="flower-choice" data-flower="🌻" data-name="Courage"><span>🌻</span><b>Sunflower</b><small>Courage</small></button>
+      <button class="flower-choice" data-flower="🪷" data-name="Wonder"><span>🪷</span><b>Lotus</b><small>Wonder</small></button>
+    </div>
+    <div class="bouquet-paper">
+      <span class="paper-label">your hand-picked bouquet</span>
+      <div class="bouquet-stems" id="bouquetStems" aria-live="polite"><span class="bouquet-empty">Your bouquet is waiting to bloom ✿</span></div>
+      <p id="bouquetMessage">Choose a flower from the patch to begin.</p>
+      <div class="bouquet-actions"><button class="garden-button" id="nameBouquet">Give it a name</button><button class="garden-button garden-button-quiet" id="clearBouquet">Start again</button></div>
+    </div>
+  </div>
+</section>
+
+<footer>
     <div class="container">
         <p>© 2025. All Rights Reserved</p>
     </div>
